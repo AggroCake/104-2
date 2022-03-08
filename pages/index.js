@@ -17,7 +17,13 @@ function JobCategory({ category, showDetail }) {
   return (
     <div>
       <h5>
-        {category.text}
+        <a
+          href={`https://www.104.com.tw/company/${category.companyId}?roleJobCat=${category.categoryId}&area=0&page=1`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {category.text}
+        </a>
         {data && `: ${data.totalCount}`}
       </h5>
       {data && data.list.normalJobs && showDetail && (
