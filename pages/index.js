@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react'
-import { getJobCategoryByCompany, getJobListByCompanyAndCategory } from '../api'
+import {
+  getCompanyName,
+  getJobCategoryByCompany,
+  getJobListByCompanyAndCategory,
+} from '../api'
 import styles from './index.module.css'
 
 function JobCategory({ category, showNumber, showDetail }) {
@@ -9,9 +13,7 @@ function JobCategory({ category, showNumber, showDetail }) {
     getJobListByCompanyAndCategory(
       category.companyId,
       category.categoryId
-    ).then(({ data }) => {
-      setData(data)
-    })
+    ).then(({ data }) => setData(data))
   }, [category])
 
   return (
@@ -46,6 +48,7 @@ function Home() {
   const [jobCategory, setJobCategory] = useState([])
   const [showNumber, setShowNumber] = useState(true)
   const [showDetail, setShowDetail] = useState(false)
+  const [companyName, setCompanyName] = useState('')
 
   let companyId = null
   if (inputUrl) {
@@ -55,6 +58,12 @@ function Home() {
       companyId = pathnameArray[pathnameArray.length - 1]
     } catch (error) {}
   }
+
+  useEffect(() => {
+    getCompanyName(companyId).then(({ data }) => {
+      setCompanyName(data.custName)
+    })
+  }, [companyId])
 
   const onClick = () => {
     getJobCategoryByCompany(companyId).then(({ data }) => {
@@ -117,6 +126,8 @@ function Home() {
               顯示工作機會列表
             </label>
           </div>
+
+          <h2>{companyName}</h2>
           <div>
             {jobCategory.map((category) => (
               <JobCategory
