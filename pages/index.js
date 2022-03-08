@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getJobCategoryByCompany, getJobListByCompanyAndCategory } from '../api'
 import styles from './index.module.css'
 
-function JobCategory({ category, showDetail }) {
+function JobCategory({ category, showNumber, showDetail }) {
   const [data, setData] = useState(null)
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function JobCategory({ category, showDetail }) {
         >
           {category.text}
         </a>
-        {data && `: ${data.totalCount}`}
+        {data && showNumber && `: ${data.totalCount}`}
       </h5>
       {data && data.list.normalJobs && showDetail && (
         <ul>
@@ -44,6 +44,7 @@ function JobCategory({ category, showDetail }) {
 function Home() {
   const [inputUrl, setInputUrl] = useState('')
   const [jobCategory, setJobCategory] = useState([])
+  const [showNumber, setShowNumber] = useState(true)
   const [showDetail, setShowDetail] = useState(false)
 
   let companyId = null
@@ -100,11 +101,17 @@ function Home() {
             <label className="form-switch">
               <input
                 type="checkbox"
+                checked={showNumber}
+                onChange={({ target }) => setShowNumber(target.checked)}
+              />
+              <i className="form-icon"></i>
+              顯示各類別人數
+            </label>
+            <label className="form-switch">
+              <input
+                type="checkbox"
                 checked={showDetail}
-                onChange={({ target }) => {
-                  console.log(target.checked)
-                  setShowDetail(target.checked)
-                }}
+                onChange={({ target }) => setShowDetail(target.checked)}
               />
               <i className="form-icon"></i>
               顯示工作機會列表
@@ -115,6 +122,7 @@ function Home() {
               <JobCategory
                 key={category.categoryId}
                 category={category}
+                showNumber={showNumber}
                 showDetail={showDetail}
               />
             ))}
