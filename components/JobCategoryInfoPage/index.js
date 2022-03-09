@@ -65,7 +65,9 @@ function JobCategoryInfoPage() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>{companyData && companyData.name} - 104 Job Category Fetcher</title>
+        <title>
+          {companyData && `${companyData.name} - `}104 Job Category Fetcher
+        </title>
       </Head>
 
       {(!companyData || jobCategory.length === 0) && <div>資料讀取中</div>}
