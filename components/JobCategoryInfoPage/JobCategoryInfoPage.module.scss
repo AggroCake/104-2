@@ -1,0 +1,50 @@
+.container {
+  margin: 20px auto;
+  width: 800px;
+
+  .header {
+    align-items: center;
+    display: flex;
+
+    .logo {
+      height: 43px;
+      width: 43px;
+    }
+
+    .companyName {
+      margin: 0;
+    }
+  }
+
+  a {
+    color: rgb(80, 70, 220);
+  }
+
+  .settingGroup {
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: fixed;
+    right: 20px;
+
+    button {
+      background: rgb(80, 70, 220);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 16px;
+      transition: 500ms;
+
+      &:hover {
+        background: rgb(100, 100, 235);
+      }
+
+      &:active {
+        background: rgb(80, 70, 220);
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 const API_BASE_URL = '/api'
 
-export function getCompanyName(companyId) {
-  return fetch(`${API_BASE_URL}/getCompanyName/${companyId}`)
+export function getCompanyData(companyId) {
+  return fetch(`${API_BASE_URL}/getCompanyData/${companyId}`)
     .then((response) => response.json())
     .catch((error) => console.error(error))
 }

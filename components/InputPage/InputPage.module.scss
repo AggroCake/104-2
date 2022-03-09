@@ -1,0 +1,85 @@
+.container {
+  margin: 240px auto 120px;
+  max-width: 800px;
+}
+
+.title {
+  color: black;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  color: rgb(80, 70, 220);
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 0 16px;
+}
+
+.inputContainer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+
+  input[type='text'] {
+    border: 1px solid rgb(215, 220, 220);
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    padding: 10px 16px;
+    transition: 200ms ease-out;
+    width: 400px;
+
+    &:hover,
+    &:focus {
+      border-color: rgb(80, 70, 220);
+    }
+  }
+
+  button {
+    background: rgb(80, 70, 220);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 16px;
+    transition: 500ms;
+
+    &:not(.disabled):hover {
+      background: rgb(100, 100, 235);
+    }
+
+    &:active {
+      background: rgb(80, 70, 220);
+    }
+
+    &.disabled {
+      opacity: 0.5;
+    }
+  }
+}
+
+.hintContainer {
+  background: rgba(100, 100, 235, 0.05);
+  border-radius: 5px;
+  padding: 16px 24px;
+
+  .hintTitle {
+    color: rgb(80, 70, 220);
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .hintContent {
+    color: black;
+    font-size: 14px;
+    line-height: 22px;
+
+    .url {
+      color: rgb(170, 45, 40);
+    }
+  }
+}
