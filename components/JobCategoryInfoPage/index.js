@@ -63,6 +63,8 @@ function JobCategoryInfoPage() {
 
   return (
     <div className={styles.container}>
+      {(!companyData || jobCategory.length === 0) && <div>資料讀取中</div>}
+
       {companyData && (
         <div className={styles.header}>
           {/* eslint-disable-next-line */}
@@ -95,8 +97,8 @@ function JobCategoryInfoPage() {
         <button onClick={toggleShowDetail}>
           {!showDetail ? '顯示' : '隱藏'}詳細工作機會
         </button>
-        <button onClick={backToTop}>回到頁面頂端</button>
-        <button onClick={backToInputPage}>回到查詢頁面</button>
+        <button onClick={backToTop}>返回頁面頂端</button>
+        <button onClick={backToInputPage}>返回查詢頁面</button>
       </div>
     </div>
   )
