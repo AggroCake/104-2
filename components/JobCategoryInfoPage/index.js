@@ -76,31 +76,16 @@ function JobCategoryInfoPage() {
       )}
 
       {jobCategory.length > 0 && (
-        <>
-          {/* <hr />
-          <input
-            type="checkbox"
-            checked={showNumber}
-            onChange={({ target }) => setShowNumber(target.checked)}
-          />
-          顯示各類別人數
-          <input
-            type="checkbox"
-            checked={showDetail}
-            onChange={({ target }) => setShowDetail(target.checked)}
-          />
-          顯示工作機會列表 */}
-          <div>
-            {jobCategory.map((category) => (
-              <JobCategoryItem
-                key={category.categoryId}
-                category={category}
-                showCount={showCount}
-                showDetail={showDetail}
-              />
-            ))}
-          </div>
-        </>
+        <div>
+          {jobCategory.map((category) => (
+            <JobCategoryItem
+              key={category.categoryId}
+              category={category}
+              showCount={showCount}
+              showDetail={showDetail}
+            />
+          ))}
+        </div>
       )}
 
       <div className={styles.settingGroup}>
