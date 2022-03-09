@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from 'react'
 import styles from './JobCategoryInfoPage.module.scss'
@@ -63,6 +64,10 @@ function JobCategoryInfoPage() {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>{companyData && companyData.name} - 104 Job Category Fetcher</title>
+      </Head>
+
       {(!companyData || jobCategory.length === 0) && <div>資料讀取中</div>}
 
       {companyData && (

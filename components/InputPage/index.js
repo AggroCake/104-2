@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback, useState } from 'react'
 import styles from './InputPage.module.scss'
@@ -40,6 +41,10 @@ function InputPage() {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>104 Job Category Fetcher</title>
+      </Head>
+
       <div>
         <h1 className={styles.title}>104 Job Category Fetcher</h1>
         <h2 className={styles.subtitle}>一鍵獲取104公司職務類別資訊。</h2>
