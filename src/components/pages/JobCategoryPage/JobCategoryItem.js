@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getJobList } from 'api'
 import JobEntry from './JobEntry'
+import styles from './JobCategoryItem.module.scss'
 
 function JobCategoryItem({ category }) {
   const [collapsed, setCollapsed] = useState(true) // For UI
@@ -19,7 +20,7 @@ function JobCategoryItem({ category }) {
 
   return (
     <div>
-      <div>
+      <div className={styles.title}>
         <button onClick={handleClick}>{collapsed ? '+' : '-'}</button>
         <a
           href={`https://www.104.com.tw/company/${category.companyId}?roleJobCat=${category.categoryId}&area=0&page=1`}

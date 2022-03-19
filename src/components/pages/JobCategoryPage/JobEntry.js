@@ -31,7 +31,7 @@ function Chart({ data }) {
   return (
     <LineChart
       width={400}
-      height={100}
+      height={120}
       data={processedData}
       margin={{ top: 5, bottom: 5 }}
     >
@@ -62,12 +62,14 @@ function JobEntry({ job, idx }) {
 
   return (
     <div className={className}>
-      {idx + 1}{' '}
-      <a href={job.jobUrl} rel="noreferrer" target="_blank">
-        {job.jobName}
-      </a>
-      {total !== null && ` 應徵人數: ${total}`}
-      <div>{analysisData && <Chart data={analysisData.yearRange} />}</div>
+      <div>
+        {idx + 1}{' '}
+        <a href={job.jobUrl} rel="noreferrer" target="_blank">
+          {job.jobName}
+        </a>
+        {total !== null && ` 應徵人數: ${total}`}
+      </div>
+      {analysisData && <Chart data={analysisData.yearRange} />}
     </div>
   )
 }
