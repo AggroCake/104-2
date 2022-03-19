@@ -1,4 +1,4 @@
-import InputPage from '../components/InputPage'
+import InputPage from 'components/pages/InputPage'
 
 function Home() {
   return <InputPage />

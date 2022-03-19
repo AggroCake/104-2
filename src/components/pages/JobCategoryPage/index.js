@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from 'react'
-import styles from './JobCategoryInfoPage.module.scss'
+import styles from './JobCategoryPage.module.scss'
 import JobCategoryItem from './JobCategoryItem'
-import { getCompanyData, getJobCategoryByCompany } from '../../api'
+import { getCompanyData, getJobCategory } from 'api'
 
 const makeLogoUrl = (url) => {
   if (!url) {
@@ -17,12 +17,14 @@ const makeLogoUrl = (url) => {
   return url
 }
 
-function JobCategoryInfoPage() {
+function JobCategoryPage() {
   const router = useRouter()
   const { companyId } = router.query
 
   const [companyData, setCompanyData] = useState('')
   const [jobCategory, setJobCategory] = useState([])
+
+  // For display settings
   const [showCount, setShowCount] = useState(true)
   const [showDetail, setShowDetail] = useState(true)
 
@@ -36,13 +38,13 @@ function JobCategoryInfoPage() {
   }, [companyId])
 
   useEffect(() => {
-    getJobCategoryByCompany(companyId).then(({ data }) => {
-      const newJobCategory = Object.entries(data.roleJobCat).map((entry) => ({
+    getJobCategory(companyId).then(({ data }) => {
+      const fetchedJobCategory = Object.entries(data.roleJobCat).map((entry) => ({
         companyId,
         categoryId: entry[0],
         text: entry[1],
       }))
-      setJobCategory(newJobCategory)
+      setJobCategory(fetchedJobCategory)
     })
   }, [companyId])
 
@@ -98,12 +100,14 @@ function JobCategoryInfoPage() {
       )}
 
       <div className={styles.settingGroup}>
+        {/*
         <button onClick={toggleShowCount}>
           {!showCount ? '顯示' : '隱藏'}職務類別人數
         </button>
         <button onClick={toggleShowDetail}>
           {!showDetail ? '顯示' : '隱藏'}詳細工作機會
         </button>
+        */}
         <button onClick={backToTop}>返回頁面頂端</button>
         <button onClick={backToInputPage}>返回查詢頁面</button>
       </div>
@@ -111,4 +115,4 @@ function JobCategoryInfoPage() {
   )
 }
 
-export default JobCategoryInfoPage
+export default JobCategoryPage

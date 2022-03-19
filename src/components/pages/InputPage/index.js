@@ -21,7 +21,9 @@ function InputPage() {
         companyId = pathnameArray[pathnameArray.length - 1]
       }
     } catch (error) {
-      console.error(error)
+      if (error.name !== 'TypeError') {
+        console.error(error)
+      }
     }
   }
 
@@ -34,7 +36,7 @@ function InputPage() {
 
   const onClick = useCallback(() => {
     router.push({
-      pathname: '/job-category-info/[companyId]',
+      pathname: '/job-category/[companyId]',
       query: { companyId },
     })
   }, [router, companyId])
@@ -59,7 +61,7 @@ function InputPage() {
         />
         <button
           onClick={onClick}
-          className={isButtonDisabled && styles.disabled}
+          className={isButtonDisabled ? styles.disabled : undefined}
           disabled={isButtonDisabled}
         >
           {!isButtonDisabled ? '獲取' : '網址格式不正確'}
@@ -83,4 +85,5 @@ function InputPage() {
     </div>
   )
 }
+
 export default InputPage
