@@ -48,7 +48,7 @@ function InputPage() {
       </Head>
 
       <div>
-        <h1 className={styles.title}>104 Job Category Fetcher</h1>
+        <h1 className={styles.title}>104 Job Category Fetcher (Beta)</h1>
         <h2 className={styles.subtitle}>一鍵獲取104公司職務類別資訊。</h2>
       </div>
 
@@ -69,9 +69,18 @@ function InputPage() {
       </div>
 
       <div className={styles.hintContainer}>
+        <div className={styles.hintTitle}>Beta 版網站有什麼新功能？</div>
+        <div className={styles.hintContent}>
+          1. 讀取某個職缺類別底下的職缺時，現在能夠一次讀取所有職缺，而不是 20
+          筆。
+          <br />
+          2. 職缺區塊之背景，按照應徵人數數量上色。
+          <br />
+          3. 職缺區塊會顯示應徵者的年齡分佈圖。
+        </div>
         <div className={styles.hintTitle}>什麼是104公司網址？</div>
         <div className={styles.hintContent}>
-          以下是幾個符合格式的104公司網址範例，您可以把它複製起來，貼到上方的輸入欄位試試。
+          以下是幾個104公司網址範例，您可以把它複製起來，貼到上方的輸入欄位試試。
           <br />
           <code className={styles.url}>
             https://www.104.com.tw/company/1a2x6bjwfs

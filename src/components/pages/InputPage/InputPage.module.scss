@@ -83,13 +83,15 @@
 .hintContainer {
   background: rgba(100, 100, 235, 0.05);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   padding: 16px 24px;
 
   .hintTitle {
     color: rgb(80, 70, 220);
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 8px;
   }
 
   .hintContent {
