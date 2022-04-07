@@ -29,20 +29,9 @@ function Chart({ data }) {
     }))
 
   return (
-    <LineChart
-      width={400}
-      height={120}
-      data={processedData}
-      margin={{ top: 5, bottom: 5 }}
-    >
+    <LineChart width={400} height={120} data={processedData} margin={{ top: 5, bottom: 5 }}>
       <CartesianGrid strokeDasharray="3 3" />
-      <Line
-        type="monotone"
-        name="應徵人數"
-        dataKey="value"
-        stroke="#8884d8"
-        dot={false}
-      />
+      <Line type="monotone" name="應徵人數" dataKey="value" stroke="#8884d8" dot={false} />
       <Tooltip />
       <XAxis dataKey="name" />
     </LineChart>
@@ -68,6 +57,7 @@ function JobEntry({ job, idx }) {
           {job.jobName}
         </a>
         {total !== null && ` 應徵人數: ${total}`}
+        <div>{job.jobTags.join(', ')}</div>
       </div>
       {analysisData && <Chart data={analysisData.yearRange} />}
     </div>
